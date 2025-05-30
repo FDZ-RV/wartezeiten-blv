@@ -5,7 +5,7 @@ import numpy as np
 #pd.options.display.max_rows = 50
 
 
-data_path = "D:\gastwissenschaftler\gastw_8\Workshop_Wartezeiten"
+data_path = "..."
 
 berichtsjahr = 2022
 
@@ -16,7 +16,7 @@ def load_var_df_and_create_status_6(data_path, berichtsjahr):
     the decision rule).
     '''
 
-    # load soep rv data
+    # load soep rv-data
     df_fix = pd.read_stata(data_path + "\SUF.SOEP-RV.VSKT.2022.fix.1-0.dta", convert_categoricals=False)
     df_var = pd.read_stata(data_path + "\SUF.SOEP-RV.VSKT.2022.var.1-0.dta", convert_categoricals=False)
 
@@ -230,10 +230,10 @@ df_final = count_valid_months(df_final)
 
 
 # save full df
-df_final.to_stata(data_path + "/Full_WZ_python.dta")
+df_final.to_stata(data_path + "/Wartezeiten_full.dta")
 
 # save only Wartezeiten
-df_final.groupby("rv_id")[["WARTEZEIT"]].mean().to_stata(data_path + "/Wartezeiten_python.dta")
+df_final.groupby("rv_id")[["WARTEZEIT"]].mean().to_stata(data_path + "/Wartezeitenn.dta")
 
 
 
